@@ -1,0 +1,1 @@
+cmd='/software/sse/manual/CMake/3.12.1/bin/cmake;-DCMAKE_CXX_COMPILER=/software/sse/manual/mpprun/4.1.2/nsc-wrappers/icpc;-DCMAKE_CXX_FLAGS=;-GUnix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'

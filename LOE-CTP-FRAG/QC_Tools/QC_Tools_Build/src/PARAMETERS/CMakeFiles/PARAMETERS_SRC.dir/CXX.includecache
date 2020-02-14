@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/PARAMETERS/parameters.cpp
+stdexcept
+-
+string
+-
+parameters.hpp
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/PARAMETERS/parameters.hpp
+../STRING_SUPPORT/string_support.hpp
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/STRING_SUPPORT/string_support.hpp
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/PARAMETERS/parameters.hpp
+string
+-
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/STRING_SUPPORT/string_support.hpp
+string
+-
+vector
+-
+

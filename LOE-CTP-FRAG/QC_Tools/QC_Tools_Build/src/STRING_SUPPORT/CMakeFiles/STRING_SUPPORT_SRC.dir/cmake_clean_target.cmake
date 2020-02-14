@@ -1,0 +1,3 @@
+file(REMOVE_RECURSE
+  "libSTRING_SUPPORT_SRC.a"
+)

@@ -1,0 +1,48 @@
+[ molecule ]
+STYR
+
+[ martini ]
+BB R1 R2 R3	S
+
+[ mapping ]
+amber96
+
+[ atoms ]
+    1    S    S
+    2   O1    S
+    3   O2    S
+    4   O3    S
+    5   C7    S     R2    R3
+    6   C5    R2
+    7   C3    R2
+    8   C2    R1
+    9   C4    R3
+   10   C6    R3
+   11   H6    S
+   12   H4    S
+   13   H5    S
+   14   H7    S
+   15   C1    BB
+   16   H1    BB
+   17   H2    BB
+   18   H3    BB
+   
+[ trans ]
+C3 C5 C7 S
+C4 C6 C7 S
+
+[ chiral ]
+H1 C1 C2 C3
+H2 C1 H1 C2
+H3 C1 H2 C2
+
+[ cis ]
+H6 C5 C7 S
+H7 C6 C7 S
+H4 C3 C5 H6
+H5 C4 C6 H7
+
+[ chiral ]
+O1 S C7 C6
+O2 S O1 C6
+O3 S O2 C6

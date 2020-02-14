@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/MATRIX/matrix.hpp
+vector
+-
+stdlib.h
+-
+iostream
+-
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/QC_FUNCTIONS/qc_functions.hpp
+sstream
+-
+string
+-
+unordered_map
+-
+vector
+-
+map
+-
+../MATRIX/matrix.hpp
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/MATRIX/matrix.hpp
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/QC_FUNCTIONS/test_qc_functions.cpp
+cassert
+-
+iostream
+-
+vector
+-
+qc_functions.hpp
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/QC_FUNCTIONS/qc_functions.hpp
+../MATRIX/matrix.hpp
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/MATRIX/matrix.hpp
+

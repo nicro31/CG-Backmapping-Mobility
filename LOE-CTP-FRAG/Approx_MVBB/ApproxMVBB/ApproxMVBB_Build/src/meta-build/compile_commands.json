@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/x_nicro/LOE-CTP-FRAG/Approx_MVBB/ApproxMVBB/ApproxMVBB_Build/src/meta-build/example",
+  "command": "/software/sse/manual/mpprun/4.1.2/nsc-wrappers/icpc   -I/home/x_nicro/LOE-CTP-FRAG/Approx_MVBB/ApproxMVBB/ApproxMVBB_Build/src/meta/include    -o CMakeFiles/tuple_cat.dir/tuple_cat.cpp.o -c /home/x_nicro/LOE-CTP-FRAG/Approx_MVBB/ApproxMVBB/ApproxMVBB_Build/src/meta/example/tuple_cat.cpp",
+  "file": "/home/x_nicro/LOE-CTP-FRAG/Approx_MVBB/ApproxMVBB/ApproxMVBB_Build/src/meta/example/tuple_cat.cpp"
+},
+{
+  "directory": "/home/x_nicro/LOE-CTP-FRAG/Approx_MVBB/ApproxMVBB/ApproxMVBB_Build/src/meta-build/example",
+  "command": "/software/sse/manual/mpprun/4.1.2/nsc-wrappers/icpc   -I/home/x_nicro/LOE-CTP-FRAG/Approx_MVBB/ApproxMVBB/ApproxMVBB_Build/src/meta/include    -o CMakeFiles/tutorial_snippets.dir/tutorial_snippets.cpp.o -c /home/x_nicro/LOE-CTP-FRAG/Approx_MVBB/ApproxMVBB/ApproxMVBB_Build/src/meta/example/tutorial_snippets.cpp",
+  "file": "/home/x_nicro/LOE-CTP-FRAG/Approx_MVBB/ApproxMVBB/ApproxMVBB_Build/src/meta/example/tutorial_snippets.cpp"
+},
+{
+  "directory": "/home/x_nicro/LOE-CTP-FRAG/Approx_MVBB/ApproxMVBB/ApproxMVBB_Build/src/meta-build/test",
+  "command": "/software/sse/manual/mpprun/4.1.2/nsc-wrappers/icpc   -I/home/x_nicro/LOE-CTP-FRAG/Approx_MVBB/ApproxMVBB/ApproxMVBB_Build/src/meta/include    -o CMakeFiles/test.meta.dir/meta.cpp.o -c /home/x_nicro/LOE-CTP-FRAG/Approx_MVBB/ApproxMVBB/ApproxMVBB_Build/src/meta/test/meta.cpp",
+  "file": "/home/x_nicro/LOE-CTP-FRAG/Approx_MVBB/ApproxMVBB/ApproxMVBB_Build/src/meta/test/meta.cpp"
+}
+]

@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/IO/FILE_READERS/filereader.hpp
+string
+-
+fstream
+-
+map
+-
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/IO/FILE_READERS/punreader.hpp
+vector
+-
+../../MATRIX/matrix.hpp
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/MATRIX/matrix.hpp
+filereader.hpp
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/IO/FILE_READERS/filereader.hpp
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/IO/FILE_READERS/test_punreader.cpp
+string
+-
+vector
+-
+iostream
+-
+cassert
+-
+punreader.hpp
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/IO/FILE_READERS/punreader.hpp
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/MATRIX/matrix.hpp
+vector
+-
+stdlib.h
+-
+iostream
+-
+

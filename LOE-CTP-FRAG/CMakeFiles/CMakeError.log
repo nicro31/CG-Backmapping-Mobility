@@ -1,0 +1,274 @@
+Performing C SOURCE FILE Test HAVE__FPU_SETCW failed with the following compile output:
+Change Dir: /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp
+
+Run Build Command:"/bin/gmake" "cmTC_0dd93/fast"
+gmake[1]: Entering directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+/bin/gmake -f CMakeFiles/cmTC_0dd93.dir/build.make CMakeFiles/cmTC_0dd93.dir/build
+gmake[2]: Entering directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0dd93.dir/src.c.o
+/software/sse/manual/mpprun/4.1.2/nsc-wrappers/icc   -DHAVE__FPU_SETCW   -o CMakeFiles/cmTC_0dd93.dir/src.c.o   -c /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c
+/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c(10): warning #266: function "_fpu_getcw" declared implicitly
+      _fpu_getcw(fpu_oldcw);
+      ^
+
+/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c(12): warning #266: function "_fpu_setcw" declared implicitly
+      _fpu_setcw(fpu_cw);
+      ^
+
+Linking C executable cmTC_0dd93
+/software/sse/manual/CMake/3.12.1/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0dd93.dir/link.txt --verbose=1
+/software/sse/manual/mpprun/4.1.2/nsc-wrappers/icc   -DHAVE__FPU_SETCW    CMakeFiles/cmTC_0dd93.dir/src.c.o  -o cmTC_0dd93 
+CMakeFiles/cmTC_0dd93.dir/src.c.o: In function `main':
+src.c:(.text+0x33): undefined reference to `_fpu_getcw'
+src.c:(.text+0x48): undefined reference to `_fpu_setcw'
+src.c:(.text+0x63): undefined reference to `_fpu_setcw'
+CMakeFiles/cmTC_0dd93.dir/src.c.o: In function `div':
+src.c:(.text+0xcc): undefined reference to `_fpu_getcw'
+src.c:(.text+0xe2): undefined reference to `_fpu_setcw'
+src.c:(.text+0xfd): undefined reference to `_fpu_setcw'
+gmake[2]: *** [cmTC_0dd93] Error 1
+gmake[2]: Leaving directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+gmake[1]: *** [cmTC_0dd93/fast] Error 2
+gmake[1]: Leaving directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+  #include <stdio.h>
+  #include <string.h>
+  #include <fpu_control.h>
+ 
+  double div (double a, double b) {
+    fpu_control_t fpu_oldcw, fpu_cw;
+    volatile double result;
+ 
+    _fpu_getcw(fpu_oldcw);
+    fpu_cw = (fpu_oldcw & ~_FPU_EXTENDED & ~_FPU_SINGLE) | _FPU_DOUBLE;
+    _fpu_setcw(fpu_cw);
+    result = a / b;
+    _fpu_setcw(fpu_oldcw);
+    return result;
+  }
+ 
+  int main (int argc, char **argv) {
+    double d = div (2877.0, 1000000.0);
+    char buf[255];
+    sprintf(buf, "%.30f", d);
+    // see if the result is actually in double precision
+    return strncmp(buf, "0.00287699", 10) == 0 ? 0 : 1;
+  }
+ 
+Performing C SOURCE FILE Test HAVE_FPSETPREC failed with the following compile output:
+Change Dir: /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp
+
+Run Build Command:"/bin/gmake" "cmTC_41b8d/fast"
+gmake[1]: Entering directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+/bin/gmake -f CMakeFiles/cmTC_41b8d.dir/build.make CMakeFiles/cmTC_41b8d.dir/build
+gmake[2]: Entering directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_41b8d.dir/src.c.o
+/software/sse/manual/mpprun/4.1.2/nsc-wrappers/icc   -DHAVE_FPSETPREC   -o CMakeFiles/cmTC_41b8d.dir/src.c.o   -c /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c
+/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c(4): catastrophic error: cannot open source file "machine/ieeefp.h"
+    #include <machine/ieeefp.h>
+                               ^
+
+compilation aborted for /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c (code 4)
+gmake[2]: *** [CMakeFiles/cmTC_41b8d.dir/src.c.o] Error 4
+gmake[2]: Leaving directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+gmake[1]: *** [cmTC_41b8d/fast] Error 2
+gmake[1]: Leaving directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+  #include <stdio.h>
+  #include <string.h>
+  #include <machine/ieeefp.h>
+ 
+  double div (double a, double b) {
+    fp_prec_t fpu_oldprec;
+    volatile double result;
+ 
+    fpu_oldprec = fpgetprec();
+    fpsetprec(FP_PD);
+    result = a / b;
+    fpsetprec(fpu_oldprec);
+    return result;
+  }
+ 
+  int main (int argc, char **argv) {
+    double d = div (2877.0, 1000000.0);
+    char buf[255];
+    sprintf(buf, "%.30f", d);
+    // see if the result is actually in double precision
+    return strncmp(buf, "0.00287699", 10) == 0 ? 0 : 1;
+  }
+ 
+Performing C SOURCE FILE Test HAVE__CONTROLFP failed with the following compile output:
+Change Dir: /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp
+
+Run Build Command:"/bin/gmake" "cmTC_1dac1/fast"
+gmake[1]: Entering directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+/bin/gmake -f CMakeFiles/cmTC_1dac1.dir/build.make CMakeFiles/cmTC_1dac1.dir/build
+gmake[2]: Entering directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1dac1.dir/src.c.o
+/software/sse/manual/mpprun/4.1.2/nsc-wrappers/icc   -DHAVE__CONTROLFP   -o CMakeFiles/cmTC_1dac1.dir/src.c.o   -c /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c
+/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c(10): warning #266: function "_controlfp" declared implicitly
+      fpu_oldcw = _controlfp(0, 0);
+                  ^
+
+/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c(11): error: identifier "_PC_53" is undefined
+      _controlfp(_PC_53, _MCW_PC);
+                 ^
+
+/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c(11): error: identifier "_MCW_PC" is undefined
+      _controlfp(_PC_53, _MCW_PC);
+                         ^
+
+/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c(19): error #11: unrecognized preprocessing directive
+      # not available on x64 platforms
+        ^
+
+compilation aborted for /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c (code 2)
+gmake[2]: *** [CMakeFiles/cmTC_1dac1.dir/src.c.o] Error 2
+gmake[2]: Leaving directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+gmake[1]: *** [cmTC_1dac1/fast] Error 2
+gmake[1]: Leaving directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+  #include <stdio.h>
+  #include <string.h>
+  #include <float.h>
+ 
+  double div (double a, double b) {
+    unsigned int fpu_oldcw;
+    volatile double result;
+ 
+    fpu_oldcw = _controlfp(0, 0);
+    _controlfp(_PC_53, _MCW_PC);
+    result = a / b;
+    _controlfp(fpu_oldcw, _MCW_PC);
+    return result;
+  }
+ 
+  int main (int argc, char **argv) {
+    
+    # not available on x64 platforms
+    #if defined(_MSC_VER) && defined(_WIN64 )
+        return 1;
+    #else
+    
+    double d = div (2877.0, 1000000.0);
+    char buf[255];
+    sprintf(buf, "%.30f", d);
+    // see if the result is actually in double precision
+    return strncmp(buf, "0.00287699", 10) == 0 ? 0 : 1;
+	#endif
+  }
+ 
+Performing C SOURCE FILE Test HAVE__CONTROLFP_S failed with the following compile output:
+Change Dir: /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp
+
+Run Build Command:"/bin/gmake" "cmTC_dbc83/fast"
+gmake[1]: Entering directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+/bin/gmake -f CMakeFiles/cmTC_dbc83.dir/build.make CMakeFiles/cmTC_dbc83.dir/build
+gmake[2]: Entering directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dbc83.dir/src.c.o
+/software/sse/manual/mpprun/4.1.2/nsc-wrappers/icc   -DHAVE__CONTROLFP_S   -o CMakeFiles/cmTC_dbc83.dir/src.c.o   -c /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c
+/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c(10): warning #266: function "_controlfp_s" declared implicitly
+      _controlfp_s(&fpu_cw, 0, 0);
+      ^
+
+/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c(12): error: identifier "_PC_53" is undefined
+      _controlfp_s(&fpu_cw, _PC_53, _MCW_PC);
+                            ^
+
+/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c(12): error: identifier "_MCW_PC" is undefined
+      _controlfp_s(&fpu_cw, _PC_53, _MCW_PC);
+                                    ^
+
+/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c(19): error #11: unrecognized preprocessing directive
+      # not available on x64 platforms
+        ^
+
+compilation aborted for /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/src.c (code 2)
+gmake[2]: *** [CMakeFiles/cmTC_dbc83.dir/src.c.o] Error 2
+gmake[2]: Leaving directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+gmake[1]: *** [cmTC_dbc83/fast] Error 2
+gmake[1]: Leaving directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+  #include <stdio.h>
+  #include <string.h>
+  #include <float.h>
+ 
+  double div (double a, double b) {
+    unsigned int fpu_oldcw, fpu_cw;
+    volatile double result;
+ 
+    _controlfp_s(&fpu_cw, 0, 0);
+    fpu_oldcw = fpu_cw;
+    _controlfp_s(&fpu_cw, _PC_53, _MCW_PC);
+    result = a / b;
+    _controlfp_s(&fpu_cw, fpu_oldcw, _MCW_PC);
+    return result;
+  }
+ 
+  int main (int argc, char **argv) {
+    # not available on x64 platforms
+    #if defined(_MSC_VER) && defined(_WIN64 )
+        return 1;
+    #else
+    double d = div (2877.0, 1000000.0);
+    char buf[255];
+    sprintf(buf, "%.30f", d);
+    // see if the result is actually in double precision
+    return strncmp(buf, "0.00287699", 10) == 0 ? 0 : 1;
+    #endif
+  }
+ 
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp
+
+Run Build Command:"/bin/gmake" "cmTC_4ffad/fast"
+gmake[1]: Entering directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+/bin/gmake -f CMakeFiles/cmTC_4ffad.dir/build.make CMakeFiles/cmTC_4ffad.dir/build
+gmake[2]: Entering directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4ffad.dir/CheckSymbolExists.c.o
+/software/sse/manual/mpprun/4.1.2/nsc-wrappers/icc    -o CMakeFiles/cmTC_4ffad.dir/CheckSymbolExists.c.o   -c /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_4ffad
+/software/sse/manual/CMake/3.12.1/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4ffad.dir/link.txt --verbose=1
+/software/sse/manual/mpprun/4.1.2/nsc-wrappers/icc       -rdynamic CMakeFiles/cmTC_4ffad.dir/CheckSymbolExists.c.o  -o cmTC_4ffad 
+CMakeFiles/cmTC_4ffad.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x23): undefined reference to `pthread_create'
+gmake[2]: *** [cmTC_4ffad] Error 1
+gmake[2]: Leaving directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+gmake[1]: *** [cmTC_4ffad/fast] Error 2
+gmake[1]: Leaving directory `/home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp'
+
+File /home/x_nicro/LOE-CTP-FRAG/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

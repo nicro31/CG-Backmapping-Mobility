@@ -1,0 +1,3 @@
+FILE(REMOVE_RECURSE
+  "libIO_SRC.a"
+)

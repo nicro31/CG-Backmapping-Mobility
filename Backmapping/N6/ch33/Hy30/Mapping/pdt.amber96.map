@@ -1,0 +1,151 @@
+[ molecule ]
+PDT
+[ martini ]
+   A1   B1   C1   V1   D1   A2   B2   C2   V2   D2   A3   B3   C3   V3   D3   A4   B4   C4   V4   D4   A5   B5   C5   V5   D5   A6   B6   C6   V6   D6
+
+[ mapping ]
+amber96
+
+[ atoms ]
+      1    C44     C4     C4     C4     D4
+      2    C43     B4     B4     B4     D4
+      3    C45     D4
+      4    C46     D4
+      5    C42     A4     A4     V5     C4     C4
+      6    C41     A4     A4     V3     B4     B4
+      7    H41     V4
+      8    H43     D4
+      9    C51     A5     A5     V4     B5     B5
+     10    C53     B5     B5     B5     D5
+     11    C54     C5     C5     C5     D5
+     12    C52     A5     A5     V6     C5     C5
+     13    C55     D5
+     14    C56     D5
+     15    H52     D5
+     16    H54     D5
+     17    C61     V6     A6     A6     V5
+     18    C63     B6     B6     B6     D6
+     19    C64     C6     C6     C6     D6
+     20    C62     V6     A6     A6     V6
+     21    C65     D6
+     22    C66     D6
+     23    H61     V6
+     24    H63     D6
+     25    O51     D5
+     26    O52     D5
+     27    O62     D6
+     28    O61     D6
+     29    O42     D4
+     30    O41     D4
+     31     S4     A4
+     32     S5     A5
+     33     S6     A6
+     34    H42     D4
+     35    H44     D4
+     36    H62     D6
+     37    H64     D6
+     38    H53     D5
+     39    H51     V5
+     40    C32     A3     A3     V4     C3     C3
+     41    C34     C3     C3     C3     D3
+     42     S3     A3
+     43    C33     B3     B3     B3     D3
+     44    O32     D3
+     45    C31     A3     A3     V2     B3     B3
+     46    O31     D3
+     47    C36     D3
+     48    C22     A2     A2     V3     C2     C2
+     49    C35     D3
+     50    H33     D3
+     51    H34     D3
+     52    C24     C2     C2     C2     D2
+     53     S2     A2
+     54    H31     V3
+     55    H32     D3
+     56    C23     B2     B2     B2     D2
+     57    O22     D2
+     58    C21     A2     A2     V1     B2     B2
+     59    O21     D2
+     60    C26     D2
+     61    C12     V1     A1     A1     V2
+     62    C25     D2
+     63    H24     D2
+     64    H23     D2
+     65    C14     C1     C1     C1     D1
+     66     S1     A1
+     67    H22     D2
+     68    H21     V2
+     69    C13     B1     B1     B1     D1
+     70    O12     D1
+     71    C11     V1     A1     A1     V1
+     72    O11     D1
+     73    C16     D1
+     74    H10     V1
+     75    C15     D1
+     76    H13     D1
+     77    H14     D1
+     78    H11     V1
+     79    H12     D1
+     80    H60     V6
+
+[ out ]
+    C11    H11    C12
+    C62    H61    C61
+
+[ out ]
+    O11    C13    H11
+    O12    C14    H11
+    O21    C23    H21
+    O22    C24    H21
+    O31    C33    H31
+    O32    C34    H31
+    O41    C43    H41
+    O42    C44    H41
+    O51    C53    H51
+    O52    C54    H51
+    O61    C63    H61
+    O62    C64    H61
+
+[ cis ]
+    C15    O11    C13    C14
+    C16    O12    C14    C13
+    C25    O21    C23    C24
+    C26    O22    C24    C23
+    C35    O31    C33    C34
+    C36    O32    C34    C33
+    C45    O41    C43    C44
+    C46    O42    C44    C43
+    C55    O51    C53    C54
+    C56    O52    C54    C53
+    C65    O61    C63    C64
+    C66    O62    C64    C63
+
+[ chiral ]
+    H11    C15    O12    C16
+    H12    C15    C16    O12
+    H13    C16    O11    C15
+    H14    C16    C15    O11
+    H21    C25    O22    C26
+    H22    C25    C26    O22
+    H23    C26    O21    C25
+    H24    C26    C25    O21
+    H31    C35    O32    C36
+    H32    C35    C36    O32
+    H33    C36    O31    C35
+    H34    C36    C35    O31
+    H41    C45    O42    C46
+    H42    C45    C46    O42
+    H43    C46    O41    C45
+    H44    C46    C45    O41
+    H51    C55    O52    C56
+    H52    C55    C56    O52
+    H53    C56    O51    C55
+    H54    C56    C55    O51
+    H61    C65    O62    C66
+    H62    C65    C66    O62
+    H63    C66    O61    C65
+    H64    C66    C65    O61
+
+[ trans ]
+    H10    C11     S1    C12
+    H60    C62     S6    C61

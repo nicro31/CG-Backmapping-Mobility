@@ -1,0 +1,29 @@
+#include "martini_v2.2P_PS.itp"
+; Then include the file(s) containing the topologies of other
+; molecules present in your system.
+
+#include "PEDOT12.itp"
+; Include Position restraint file
+#ifdef POSRES
+#include "posreP.itp"
+#endif
+
+#include "TS.itp"
+; Include Position restraint file
+#ifdef POSRES
+#include "posreTS.itp"
+#endif
+
+#include "martini_v2.0_ions.itp"
+; Define a name for your system
+
+[ system ]
+CompleteSYS 
+
+; Define the composition of your system
+; The molecule names should correspond to those defined in the itp file(s).
+
+[ molecules ]
+PEDOT    400
+TS       1600
+PW       51956

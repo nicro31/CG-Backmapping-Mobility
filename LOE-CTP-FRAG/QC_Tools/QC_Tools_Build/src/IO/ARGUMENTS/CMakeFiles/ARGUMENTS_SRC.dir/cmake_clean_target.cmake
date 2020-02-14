@@ -1,0 +1,3 @@
+file(REMOVE_RECURSE
+  "libARGUMENTS_SRC.a"
+)

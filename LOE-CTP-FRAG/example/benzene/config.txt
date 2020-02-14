@@ -1,0 +1,54 @@
+///Graphic settings for VMD site orientation vectors///
+vectLength  1.5
+vectRadius  0.2
+vectResol  12
+
+///Edges threshold parameters, if dThresholdIntra = -1, adjacent transport units on chain are linked (require good fragments/conjugated units ordering in the .map file)///
+dThresholdInter  7
+dThresholdIntra  8
+
+///Miller Abrahams parameters, and user defined transfer integrals (eV) for intra-molecular (if >= 0, else ZINDO results are used) and inter-level hopping///
+w0_intra  1
+w0_inter  1
+w0_level  1
+loc_inter  15
+loc_intra  15
+H_intra 1
+H_level 1
+
+///MO levels information, if DOS broadening (eV) >= 0 the energy levels are draw from truncated gaussian distribution centered on levelEnergy values///
+nbrLevels  2
+levelType HOMO
+nbrLevels2Read  2
+dosBroadening 0.1
+levelEnergy 0 0
+nbProcSharedGaussian 2
+
+/// Parameters to calculate percolation curve (in unit ln(H(eV))) ///
+Hmin -20
+Hmax 2
+dH 0.1
+
+///Field values for mobility calculation(V/cm, value in x, y, z directions)///
+6
+1e4 0 0
+-1e4 0 0
+0 1e4 0
+0 -1e4 0
+0 0 1e4
+0 0 -1e4
+
+///Temperature values for mobility calculation///
+1
+300
+
+///Concentration values for mobility calculation (total number of carrier in the system)///
+1
+1
+
+///Parameters for convergence of the mean-field solution to mobility///
+accuracyMob 1e-8
+accuracyOcc 1e-5
+accuracyCon 1e-5
+nbIterUpdate 1e4
+nbIterMax 1e5

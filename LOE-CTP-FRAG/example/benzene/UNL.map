@@ -1,0 +1,36 @@
+# Map file, N. Rolland, LOE Linköping University, 29/05/2018
+# Map file for UNK residue
+# Prototype for file
+# [Fragment name]
+# Number of atoms in fragment
+# Atom number 1, atom element, is bond to be saturated?
+# Atom number 2, atom element, is bond to be saturated?
+# ...
+# {Conjugated unit name}
+# Number of fragments in conjugated unit
+# fragment name 1
+# fragment name 2
+# ...
+
+[BBB1]
+12
+1	C	0
+2	C	0
+3	C	0
+4	C	0
+5	C	0
+6	C	0
+7	H	0
+8	H	0
+9	H	0
+10	H	0
+11	H	0
+12	H	0
+
+
+{BEN}
+1
+BBB1
+
+
+

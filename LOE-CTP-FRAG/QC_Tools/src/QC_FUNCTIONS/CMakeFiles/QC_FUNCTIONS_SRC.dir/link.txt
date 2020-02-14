@@ -1,0 +1,2 @@
+/software/sse/easybuild/prefix/software/binutils/2.30-GCCcore-7.3.0/bin/ar cr libQC_FUNCTIONS_SRC.a  CMakeFiles/QC_FUNCTIONS_SRC.dir/qc_functions.cpp.o
+/software/sse/easybuild/prefix/software/binutils/2.30-GCCcore-7.3.0/bin/ranlib libQC_FUNCTIONS_SRC.a

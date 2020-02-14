@@ -1,0 +1,84 @@
+sudo: required
+language: cpp
+
+env:
+  global: OMP_NUM_THREADS=2 APPROXMVBB_CACHE_DIR="$HOME/ApproxMVBBCache"
+
+cache:
+  directories:
+  - ${APPROXMVBB_CACHE_DIR}
+
+matrix:
+  include:
+  - env: GCC_VERSION=5 
+    os: linux
+    addons: &gcc5
+        apt:
+          sources: ['ubuntu-toolchain-r-test']
+          packages: ['g++-5']
+
+  - env: GCC_VERSION=6
+    os: linux
+    addons: &gcc6
+        apt:
+          sources: ['ubuntu-toolchain-r-test']
+          packages: ['g++-6']
+
+  - env: CLANG_VERSION=5.0
+    os: linux
+    addons: &clang5
+        apt:
+          packages:
+            - util-linux
+            - clang-5.0
+            - g++-6
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise
+
+  - env: APPLE_CLANG="YES"
+    os: osx
+    osx_image: xcode9.2
+    compiler: clang
+
+  - env: APPLE_CLANG="NO"
+    os: osx
+    osx_image: xcode9.2
+    compiler: clang
+
+before_install:
+   # Workaround for Travis CI macOS bug (https://github.com/travis-ci/travis-ci/issues/6307)
+   # See https://github.com/searchivarius/nmslib/pull/259
+   - |
+      if [ "${TRAVIS_OS_NAME}" == "osx" ]; then
+         command curl -sSL https://rvm.io/mpapis.asc | gpg --import -;
+         rvm get head || true
+      fi
+ 
+
+# Install dependencies
+install:
+  - export ROOT_PATH=`pwd`/../;
+  - export CHECKOUT_PATH=`pwd`;
+  - echo "ROOT_PATH= $ROOT_PATH"
+  - echo "CHECKOUT_PATH= $CHECKOUT_PATH"
+
+  - export branchName=$TRAVIS_BRANCH
+
+  - mkdir -p $APPROXMVBB_CACHE_DIR/{bin,include,lib,share}
+  - export CMAKE_PREFIX_PATH="$APPROXMVBB_CACHE_DIR;/usr/local"
+
+  - chmod +x $CHECKOUT_PATH/travis/install_${TRAVIS_OS_NAME}.sh
+  - . $CHECKOUT_PATH/travis/install_${TRAVIS_OS_NAME}.sh
+
+script:
+  - chmod +x $CHECKOUT_PATH/travis/build.sh
+  - . $CHECKOUT_PATH/travis/build.sh
+
+after_success:
+  - cd $CHECKOUT_PATH
+  - git reset --hard HEAD # Discard build artifacts
+  - git clean -df # Discard build artifacts
+
+notifications:
+  email: false

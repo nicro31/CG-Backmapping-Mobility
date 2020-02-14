@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/IO/ARGUMENTS/PROPERTIES/propertydouble.hpp
+propertyobject.hpp
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/IO/ARGUMENTS/PROPERTIES/propertyobject.hpp
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/IO/ARGUMENTS/PROPERTIES/propertyobject.hpp
+string
+-
+memory
+-
+exception
+-
+stdexcept
+-
+map
+-
+iostream
+-
+vector
+-
+sstream
+-
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/IO/ARGUMENTS/PROPERTIES/test_propertydouble.cpp
+string
+-
+vector
+-
+iostream
+-
+exception
+-
+cassert
+-
+propertydouble.hpp
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/IO/ARGUMENTS/PROPERTIES/propertydouble.hpp
+

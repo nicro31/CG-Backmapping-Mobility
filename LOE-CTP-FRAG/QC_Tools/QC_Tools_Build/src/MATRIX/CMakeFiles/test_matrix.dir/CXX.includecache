@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/MATRIX/matrix.hpp
+vector
+-
+stdlib.h
+-
+iostream
+-
+
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/MATRIX/test_matrix.cpp
+matrix.hpp
+/home/x_nicro/LOE-CTP-FRAG/QC_Tools/src/MATRIX/matrix.hpp
+iostream
+-
+cassert
+-
+

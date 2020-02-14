@@ -1,0 +1,2 @@
+/software/sse/easybuild/prefix/software/binutils/2.30-GCCcore-7.3.0/bin/ar cr libMATRIX_SRC.a  CMakeFiles/MATRIX_SRC.dir/matrix.cpp.o
+/software/sse/easybuild/prefix/software/binutils/2.30-GCCcore-7.3.0/bin/ranlib libMATRIX_SRC.a

@@ -1,0 +1,2 @@
+/software/sse/easybuild/prefix/software/binutils/2.30-GCCcore-7.3.0/bin/ar cr libFILE_READERS_SRC.a  CMakeFiles/FILE_READERS_SRC.dir/filereader.cpp.o CMakeFiles/FILE_READERS_SRC.dir/punreader.cpp.o CMakeFiles/FILE_READERS_SRC.dir/logreader.cpp.o
+/software/sse/easybuild/prefix/software/binutils/2.30-GCCcore-7.3.0/bin/ranlib libFILE_READERS_SRC.a

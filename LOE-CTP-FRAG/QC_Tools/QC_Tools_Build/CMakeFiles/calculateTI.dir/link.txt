@@ -1,0 +1,2 @@
+/software/sse/easybuild/prefix/software/binutils/2.30-GCCcore-7.3.0/bin/ar qc libcalculateTI.a  CMakeFiles/calculateTI.dir/src/calculateTI.cpp.o
+/software/sse/easybuild/prefix/software/binutils/2.30-GCCcore-7.3.0/bin/ranlib libcalculateTI.a
